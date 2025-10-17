@@ -11,4 +11,4 @@ edition = "2021"
 description = "proc-macro dev helper: auto-injects nested call-stack prefixes to println! in debug builds, vanishes completely in release."
 
 [workspace.dependencies]
-dev-log-macros = { version = "*", path = "dev-log-macros" }
+dev-log-macros = { version = "0.1.0", path = "dev-log-macros" }
