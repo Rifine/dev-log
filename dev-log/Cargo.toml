@@ -13,5 +13,5 @@ dev-log-macros = { workspace = true }
 [features]
 default = ["allow-print"]
 allow-print = []
-stack-trace = []
+stack-trace = ["dev-log-macros/stack-trace"]
 shadow-std = []

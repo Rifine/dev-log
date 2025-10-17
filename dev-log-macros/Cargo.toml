@@ -5,7 +5,7 @@ authors.workspace = true
 license.workspace = true
 repository.workspace = true
 edition.workspace = true
-description.workspace = true
+description = "Procedural macros for dev-log. Not intended for direct use."
 
 [lib]
 proc-macro = true
@@ -13,3 +13,6 @@ proc-macro = true
 [dependencies]
 quote = "1"
 syn = { version = "2", features = ["full"] }
+
+[features]
+stack-trace = []
