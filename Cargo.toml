@@ -8,7 +8,7 @@ name = "test"
 path = "test/test1.rs"
 
 [dependencies]
-dev-log-macros = { path = "dev-log-macros"}
+dev-log-macros = { path = "dev-log-macros", version = "*"}
 
 [features]
 default = ["allow-print"]
