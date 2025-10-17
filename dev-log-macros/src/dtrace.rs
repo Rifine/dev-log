@@ -16,14 +16,13 @@ impl DTraceAttribute {
                 let attrs = &f.attrs;
                 let body = &f.block;
 
-                quote! {
+                return quote! {
                     #(#attrs)*
                     #vis #sig {
-                        #[cfg(feature="stack-trace")]
                         let __stack_guard: ::dev_log::stack_trace::StackTrace = #name.into();
                         #body
                     }
-                }.into()
+                }.into();
             },
             _ => panic!("#[dtrace] only avaliable for fn"),
         }

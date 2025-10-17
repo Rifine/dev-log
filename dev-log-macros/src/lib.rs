@@ -1,8 +1,10 @@
 use proc_macro::TokenStream;
 use syn::{parse_macro_input, Item};
 
+#[cfg(feature="stack-trace")]
 mod dtrace;
 
+#[cfg(feature="stack-trace")]
 #[proc_macro_attribute]
 pub fn dtrace(args: TokenStream, input: TokenStream) -> TokenStream {
     if !cfg!(debug_assertions) {
