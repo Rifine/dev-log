@@ -22,7 +22,7 @@ macro_rules! println {
 
 #[cfg(all(not(feature = "stack-trace"), feature = "allow-print"))]
 #[macro_export]
-macro_rules!  {
+macro_rules! println {
     ($($args:tt)*) => {
         ::std::println!($($args)*);
     };
