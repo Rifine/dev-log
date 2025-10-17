@@ -1,0 +1,17 @@
+[package]
+name = "dev-log"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "test"
+path = "test/test1.rs"
+
+[dependencies]
+dev-log-macros = { path = "dev-log-macros"}
+
+[features]
+default = ["allow-print"]
+allow-print = []
+stack-trace = []
+shadow-std = []
