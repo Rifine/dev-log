@@ -1,13 +1,13 @@
-[package]
-name = "dev-log"
+[workspace]
+members = ["dev-log-macros", "dev-log"]
+resolver = "2"
+
+[workspace.package]
 version = "0.1.0"
-edition = "2024"
+authors = ["Rifine 231310326@mail.dhu.edu.cn"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Rifine/dev-log"
+edition = "2021"
 
-[dependencies]
-dev-log-macros = { path = "./dev-log-macros", version = "*"}
-
-[features]
-default = ["allow-print"]
-allow-print = []
-stack-trace = []
-shadow-std = []
+[workspace.dependencies]
+dev-log-macros = { version = "*", path = "dev-log-macros" }
