@@ -5,16 +5,25 @@ pub use dev_log_macros::*;
 #[doc(hidden)]
 pub mod stack_trace;
 
+#[cfg(all(feature = "stack-trace", feature = "allow-print"))]
 #[macro_export]
 macro_rules! println {
     ($($args:tt)*) => {
-        #[cfg(feature = "stack-trace")]
-        {
-            $crate::stack_trace::StackTrace::print_current();
-        }
-        #[cfg(feature = "allow-print")]
-        {
-            ::std::println!($($args)*);
-        }
+        $crate::stack_trace::StackTrace::print_current();
+        ::std::println!($($args)*);
+    };
+}
+
+#[cfg(not(feature = "allow-print"))]
+#[macro_export]
+macro_rules! println {
+    ($($args:tt)*) => {};
+}
+
+#[cfg(all(not(feature = "stack-trace"), feature = "allow-print"))]
+#[macro_export]
+macro_rules!  {
+    ($($args:tt)*) => {
+        ::std::println!($($args)*);
     };
 }
